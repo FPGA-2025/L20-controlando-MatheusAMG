@@ -1,13 +1,5 @@
 #!/bin/bash
-
-# Compila todos os arquivos .v
-iverilog -o tb *.v
-
-# Remove saída anterior
-rm -f saida.out
-
-# Executa o testbench e salva a saída
-./tb > saida.out
-
-# Mostra apenas as linhas com "OK" ou "ERRO"
+iverilog -o tb *.v 
+rm -f saida.out 
+./tb > saida.out 
 grep -oE '\b(OK|ERRO)\b' saida.out
